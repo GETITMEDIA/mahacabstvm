@@ -1,26 +1,32 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  document.querySelector("button.theme-btn[type=\"submit\"]").addEventListener("click", function (e) {
+  // "Find Your Car" box (Branch + Available Time dropdowns + SEARCH button)
+  const box = document.querySelector(".car-list-box");
+  if (!box) return;
+
+  const searchBtn = box.querySelector("button.theme-btn");
+  const selects = box.querySelectorAll(".nice-select .current");
+
+  searchBtn.addEventListener("click", function (e) {
     e.preventDefault();
 
     // Collect selected values
-    let vehicle = document.querySelector('.form-clt:nth-child(1) .nice-select .current').innerText.trim();
-    let time = document.querySelector('.form-clt:nth-child(2) .nice-select .current').innerText.trim();
+    let vehicle = selects[0] ? selects[0].innerText.trim() : "";
+    let time = selects[1] ? selects[1].innerText.trim() : "";
 
     // WhatsApp number
-    let number = "919597589035"; // change to your number
+    let number = "919597589035";
 
     // Create message
     let message =
-      "🚗 *Vehicle Booking Request* %0A%0A" +
-      "*Vehicle:* " + vehicle + "%0A" +
-      "*Available Time:* " + time + "%0A";
+      "🚗 *Vehicle Booking Request*\n\n" +
+      "*Vehicle:* " + vehicle + "\n" +
+      "*Available Time:* " + time;
 
     // Send to WhatsApp
-    let url = "https://wa.me/" + number + "?text=" + message;
-    window.open(url, "_blank").focus();
+    let url = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
+    window.open(url, "_blank");
   });
 
 });
-
