@@ -1,0 +1,37 @@
+# ----------------------------------------------------------------------
+# Maha Cabs TVM - Canonical, SSL & 301 Redirect Rules
+# ----------------------------------------------------------------------
+
+RewriteEngine On
+
+# 1. Redirect HTTP to HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://mahacabstvm.com/$1 [R=301,L]
+
+# 2. Redirect WWW to Non-WWW
+RewriteCond %{HTTP_HOST} ^www\.mahacabstvm\.com$ [NC]
+RewriteRule ^(.*)$ https://mahacabstvm.com/$1 [R=301,L]
+
+# 3. Redirect /index.html to Root /
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
+RewriteRule ^index\.html$ https://mahacabstvm.com/ [R=301,L]
+
+# 4. 301 Redirect common legacy URLs to Home anchors
+RewriteRule ^contact/?$ https://mahacabstvm.com/#contact [R=301,L]
+RewriteRule ^about/?$ https://mahacabstvm.com/#about [R=301,L]
+RewriteRule ^service/?$ https://mahacabstvm.com/#service [R=301,L]
+RewriteRule ^services/?$ https://mahacabstvm.com/#service [R=301,L]
+RewriteRule ^cabs/?$ https://mahacabstvm.com/#service [R=301,L]
+RewriteRule ^fleet/?$ https://mahacabstvm.com/#service [R=301,L]
+
+# 5. Redirect any other non-existent page/URL directly to Homepage (No 404 page)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ https://mahacabstvm.com/ [R=301,L]
+
+# 6. Security Headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

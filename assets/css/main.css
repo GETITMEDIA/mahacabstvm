@@ -8765,3 +8765,81 @@ a.footer-3-contact:hover div.icon i {
   color: #1a1a1a;
   font-weight: 400;
 }
+
+.testimonial-box-items .testimonial-content .client-info img,
+.testimonial-wrapper-2 .testimonial-card-items .client-info img,
+.client-info img {
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  min-height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffaa00;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  display: block;
+}
+
+/* Custom Circular Avatar Stack */
+.avatar-group {
+  display: inline-flex !important;
+  align-items: center !important;
+  flex-direction: row !important;
+  flex-shrink: 0 !important;
+  vertical-align: middle;
+}
+.avatar-group .avatar-item {
+  width: 46px !important;
+  height: 46px !important;
+  min-width: 46px !important;
+  min-height: 46px !important;
+  max-width: 46px !important;
+  max-height: 46px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35) !important;
+  display: block !important;
+  position: relative;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.avatar-group .avatar-item:nth-child(1) {
+  z-index: 1;
+}
+.avatar-group .avatar-item:nth-child(2) {
+  margin-left: -13px !important;
+  z-index: 2;
+}
+.avatar-group .avatar-item:nth-child(3) {
+  margin-left: -13px !important;
+  z-index: 3;
+}
+.avatar-group .avatar-plus {
+  width: 46px !important;
+  height: 46px !important;
+  min-width: 46px !important;
+  min-height: 46px !important;
+  max-width: 46px !important;
+  max-height: 46px !important;
+  border-radius: 50% !important;
+  background-color: #FFBF25 !important;
+  background: #FFBF25 !important;
+  border: 2px solid #ffffff !important;
+  margin: 0 0 0 -13px !important;
+  padding: 0 !important;
+  z-index: 4;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  box-sizing: border-box !important;
+}
+.avatar-group .avatar-plus svg {
+  display: block !important;
+  width: 14px !important;
+  height: 14px !important;
+  margin: auto !important;
+  stroke: #111111 !important;
+}

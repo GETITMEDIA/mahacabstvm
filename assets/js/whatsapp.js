@@ -1,7 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  // "Find Your Car" box (Branch + Available Time dropdowns + SEARCH button)
+  // "Get a Taxi Quote" box (Branch + Available Time dropdowns + SEARCH button)
   const box = document.querySelector(".car-list-box");
   if (!box) return;
 
